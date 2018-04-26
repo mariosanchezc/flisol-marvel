@@ -87,9 +87,13 @@ WSGI_APPLICATION = 'MarvelProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': "marveldb",
+        'USER': "your_user_postgres",
+        'PASSWORD': "your_pass_postgres",
+        'HOST': 'localhost',
+        'PORT': 5432
+    },
 }
 
 
