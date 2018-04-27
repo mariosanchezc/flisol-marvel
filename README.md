@@ -1,5 +1,5 @@
 ## FIRST APPS 
-Esta rama Soluciona el reto 2 (Creación de APPS y Modelo Personaje):
+SOLUCIÓN RETO 3: Creación de APPS y Modelo Personaje:
 
 1. Crear una carpeta apps
     - mkdir apps
@@ -12,5 +12,11 @@ Esta rama Soluciona el reto 2 (Creación de APPS y Modelo Personaje):
 5. Hacer Migraciones
     - python manage.py makemigrations
     - python manage.py migrate
-6. Referencias: 
+6. Agregar al admin de django
+    - Añadir el modelo Personaje al admin.py
+7. Referencias: 
     - https://docs.djangoproject.com/en/2.0/topics/db/models/
+
+## Reto 4:
+Crea tu primera vista: La vista deberá renderizar un Template
+y se deberá usar bootstrap para estilizar su plantilla.
