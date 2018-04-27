@@ -1,5 +1,5 @@
 ## FIRST APPS 
-SOLUCIÓN RETO 3: Creación de APPS y Modelo Personaje:
+SOLUCIÓN RETO 3: Creación de APPS y Modelos Personaje y Comic:
 
 1. Crear una carpeta apps
     - mkdir apps
@@ -7,7 +7,7 @@ SOLUCIÓN RETO 3: Creación de APPS y Modelo Personaje:
     - django-admin startapp <personajes>
 3. Instalar nuestra app personajes:
     - dentro del archivo settings en OWNER_APPS
-4. Crear nuestro primer modelo
+4. Crear nuestros primeros modelos
     - Escriba sus modelos: Personaje, Comic dentro del archivo models.py
 5. Hacer Migraciones
     - python manage.py makemigrations
