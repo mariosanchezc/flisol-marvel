@@ -40,7 +40,7 @@ DJANGO_APPS = [
 ]
 
 OWNER_APPS = [
-
+    'apps.personajes',
 ]
 
 THIRD_APPS = [

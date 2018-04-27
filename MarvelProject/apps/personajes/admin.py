@@ -1,3 +1,6 @@
 from django.contrib import admin
+from apps.personajes.models import Personaje, Comic
 
-# Register your models here.
+admin.site.register(Comic)
+admin.site.register(Personaje)
+
