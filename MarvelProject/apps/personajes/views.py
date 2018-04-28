@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import View
+from django.views.generic import View, ListView
 from django.http import HttpResponseRedirect
 from .forms import PersonajeForm
 from .models import Personaje
@@ -46,5 +46,18 @@ class CreatePersonajeView(View):
                 tipo_personaje=form.cleaned_data['tipo_personaje'],
             )
             personaje.save()
-            return HttpResponseRedirect("/creado")
+            return HttpResponseRedirect("/list-personajes")
         return render(request, self.template_name, {"form": form})
+
+
+class ListPersonajeView(ListView):
+    """
+    Lista todos los Personajes de Marvel
+    """
+    template_name = 'personajes/list-personaje.html'
+    model = Personaje
+    paginate_by = 100
+
+
+    def get_queryset(self):
+        return Personaje.objects.all().order_by('-fecha_creacion')

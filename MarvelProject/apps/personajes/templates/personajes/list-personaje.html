@@ -1,0 +1,46 @@
+{% extends 'personajes/index.html'%}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{%endblock%}
+
+<script src="{% static 'js/index.js' %}"></script>
+
+{%block title%} <h5 class="teal-text text-darken-2">Personajes del Universo de Marvel</h5> {%endblock%}
+
+{% block container%}
+
+{% for personaje in object_list %}
+    <div class="row personaje">
+        <div class="card col">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="{{personaje.imagen.url}}">
+            </div>
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">{{personaje.nombre}}
+                    <i class="material-icons right">more_vert</i></span>
+                    <div class="chip">
+                        {{personaje.tipo_personaje}}
+                        <i class="close material-icons">account_circle</i>
+                    </div>
+                    <div class="creado">
+                        Creado : {{personaje.fecha_creacion}}
+                    </div>
+                    <p><a href="#">Ver Detalle</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">{{personaje.nombre}}
+                          <i class="material-icons right">account_circle</i></span>
+                    <p>{{personaje.descripcion}}</p>
+                </div>
+        </div>
+    </div>
+    {% endfor %}        
+
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large waves-effect waves-light red" 
+           href="{% url 'personajes:crear-personaje' %}">
+            <i class="material-icons">add</i></a>
+    </div>
+{% endblock %}
