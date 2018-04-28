@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'materialize/css/materialize.min.css' %}">
+    <title>Primer template</title>
+</head>
+<body>
+    <div class="center">
+        <h1>{{title}}</h1>
+    </div>
+
+    <div class="center">
+        Es la hora actual: {{date}}
+    </div>
+
+    <script src="{% static 'materialize/js/materialize.min.js' %}"></script>
+</body>
+</html>

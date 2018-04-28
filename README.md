@@ -1,24 +1,20 @@
-## FIRST APPS 
-SOLUCIÓN RETO 3: Creación de APPS y Modelos Personaje y Comic:
+## Reto 4
+SOLUCIÓN RETO 4: Creación de una Vista basada en función
 
-1. Crear una carpeta apps
-    - mkdir apps
-2. Dentro de la carpeta apps crear una nueva app
-    - django-admin startapp <personajes>
-3. Instalar nuestra app personajes:
-    - dentro del archivo settings en OWNER_APPS
-4. Crear nuestros primeros modelos
-    - Escriba sus modelos: Personaje, Comic dentro del archivo models.py
-5. Hacer Migraciones
-    - python manage.py makemigrations
-    - python manage.py migrate
-6. Agregar al admin de django
-    - Añadir el modelo Personaje al admin.py
-7. Abrir la consola y ejecutar querysets
-    - python manage.py shell
+1. Crea la vista basada en función
+2. Crear un template en la carpeta apps/personajes/templates/personajes/index.html
+3. Crear el archivo urls.py y hacer referencia de la vista creada
+4. Hacer Referencia de las urls de personajes en el archivo principal de urls.py
+5. Enviar un contexto al template ubicando fecha y Hora actual
+6. Envíe un titulo como contexto a su template
+7. Cargue estilos con Materialize
+    - Cree una carpeta static
+    - Verifique que las variables /static/ sean correctas en el settings
+    - coloque la carpeta descargada de materialize
+    - haga referencia de estilos en el template
 8. Referencias:
-    - https://docs.djangoproject.com/en/2.0/topics/db/models/
+    - https://docs.djangoproject.com/en/2.0/topics/http/views/
 
-## Reto 4:
-Crea tu primera vista: La vista deberá renderizar un Template
-y se deberá usar materialize para estilizar su plantilla.
+## Reto 5:
+Crea tu vista basada en Clase: Esta vista permitirá cargar un nuevo template
+usando una clase generíca llamada View
