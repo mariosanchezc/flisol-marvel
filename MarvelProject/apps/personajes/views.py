@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import View
+from django.http import HttpResponseRedirect
+from .forms import PersonajeForm
+from .models import Personaje
 import datetime
 
 
@@ -13,17 +16,35 @@ def prueba1(request):
     return render(request, template_name, context={"title": title, 'date': date})
 
 
-class PruebaView(View):
+class CreatePersonajeView(View):
     """
-    Permite Crear una nueva Plantilla
-    utilizan una vista basada en clase
+    Permite crear un nuevo personaje de Marvel
     """
-    template_name = 'personajes/index.html'
+    template_name = 'personajes/crear.html'
+    form_class = PersonajeForm
 
     def get(self, request, *args, **kwargs):
         """
-        visualiza el template
+        Visualiza el template
         """
-        title = "Este es mi Segundo Template"
-        date = datetime.datetime.now()
-        return render(request, self.template_name, context={'title': title, 'date':date})
+        title = "Creación de un personaje Marvel"
+        tipos = ["HEROE", "VILLANO"]
+        return render(request, self.template_name, context={
+            'title': title, 'form':self.form_class,
+            'tipos': tipos})
+
+    def post(self, request, *args, **kwargs):
+        """
+        Crea un nuevo Personaje
+        """
+        form = PersonajeForm(request.POST, request.FILES)
+        if form.is_valid():
+            personaje = Personaje(
+                nombre=form.cleaned_data['nombre'],
+                imagen=form.cleaned_data['imagen'],
+                descripcion=form.cleaned_data['descripcion'],
+                tipo_personaje=form.cleaned_data['tipo_personaje'],
+            )
+            personaje.save()
+            return HttpResponseRedirect("/creado")
+        return render(request, self.template_name, {"form": form})

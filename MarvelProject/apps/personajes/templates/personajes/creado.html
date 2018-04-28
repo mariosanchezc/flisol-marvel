@@ -1,0 +1,13 @@
+{% extends 'personajes/index.html' %}
+{% load static%}
+
+{% block container %}
+<div class="card center">
+    <div class="card-content">
+        <h1 class="red-text text-darken-2">Tu personaje Ha sido Creado Satisfactoriamente</h1>
+    </div>
+    <div class="imagen">
+        <img src="{% static 'img/marvel.png' %}" alt="marvel">
+    </div>
+</div>
+{% endblock %}

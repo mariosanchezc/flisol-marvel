@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import prueba1, PruebaView
+from django.views.generic import TemplateView
+from .views import prueba1, CreatePersonajeView
 
 
 
@@ -7,5 +8,6 @@ app_name = "personajes"
 
 urlpatterns = [
     path("", prueba1, name="prueba"),
-    path("prueba2", PruebaView.as_view(), name="prueba2")
+    path("crear-personaje", CreatePersonajeView.as_view(), name="crear-personaje"),
+    path("creado/", TemplateView.as_view(template_name="personajes/creado.html"), name="creado")
 ]

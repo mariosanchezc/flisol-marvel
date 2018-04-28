@@ -8,16 +8,19 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'materialize/css/materialize.min.css' %}">
     <title>Primer template</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="center">
-        <h1>{{title}}</h1>
+        {%block title%} {%endblock%}
     </div>
 
-    <div class="center">
-        Es la hora actual: {{date}}
+    <div class="container">
+        {% block container%}{%endblock%}
     </div>
-
+    
     <script src="{% static 'materialize/js/materialize.min.js' %}"></script>
 </body>
 </html>
