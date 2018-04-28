@@ -1,5 +1,7 @@
 from django.db import models
 from apps.utils.utils import user_directory_path
+from django.urls import reverse
+
 
 HEROE = "HEROE"
 VILLANO = "VILLANO"
@@ -25,6 +27,11 @@ class Personaje(models.Model):
 
     def __str__(self):
         return self.nombre
+
+
+    def get_absolute_url(self):
+        return reverse('personajes:detail', kwargs={'pk': self.pk})
+
 
 
 class Comic(models.Model):

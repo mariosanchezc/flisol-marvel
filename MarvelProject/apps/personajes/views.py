@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import View, ListView, DetailView
+from django.views.generic import View, ListView, DetailView, UpdateView
 from django.http import HttpResponseRedirect
 from .forms import PersonajeForm
 from .models import Personaje
@@ -67,8 +67,14 @@ class PersonajeDetail(DetailView):
     """
     Detalla Nuestro Personaje
     """
-    template_name='personajes/detail-personaje.html'
+    template_name = 'personajes/detail-personaje.html'
     model = Personaje
-    paginate_by = 100
 
-    
+
+class PersonajeUpdateView(UpdateView):
+    """
+    Permite actualizar un Personaje
+    """
+    template_name = 'personajes/update-personaje.html'
+    model = Personaje
+    fields = ['nombre', 'tipo_personaje', 'descripcion', 'imagen']

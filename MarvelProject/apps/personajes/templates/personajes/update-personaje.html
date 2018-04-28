@@ -1,0 +1,83 @@
+{% extends 'personajes/index.html'%}
+{% load static %}
+
+
+{%block title%} <h4>Crea tu Personaje de Marvel</h4> {%endblock%}
+
+{% block container%}
+
+<script src="{% static 'js/index.js' %}"></script>
+
+<!-- IMAGEN -->
+<div>
+    <a class="btn-floating tooltipped" data-position="bottom" data-delay="30" 
+        data-tooltip="Regresar" href="{% url 'personajes:list' %}">
+        <i class="material-icons">arrow_back</i></a>
+</div>
+
+<!-- FORMULARIO -->
+<div class="row card" >
+    <div class="col s5 hoverable" style="margin-top:20px">
+        <img src="{{object.imagen.url}}" alt="" class=" responsive-img"> <!-- notice the "circle" class -->
+    </div>
+    <form class="col s7 card-content" method="POST" 
+          enctype="multipart/form-data" action="{% url 'personajes:update' object.pk %}">
+        {% csrf_token %}
+        <!-- Nombres -->
+        <div class="input-field col s12">
+            <i class="material-icons prefix">account_circle</i>
+            {{form.nombre}}
+            <label for="nombre">Nombre de Tu Personaje de Marvel</label>
+            
+            {% for error in form.nombre.errors %}
+                <div class="card-panel red lighten-2">
+                    <span class="white-text text-darken-2">{{error}}</span></div>
+            {% endfor %}
+                
+        </div>
+        <!-- Tipo Personaje -->
+        <div class="input-field col s12">
+            <i class="material-icons prefix">account_circle</i>
+            {{form.tipo_personaje}}
+            <label>Es un Villano o un Héroe?</label>
+            {% for error in form.tipo_personaje.errors %}
+                <div class="card-panel red lighten-2">
+                    <span class="white-text text-darken-2">{{error}}</span></div>
+            {% endfor %}
+        </div>
+        <br>
+        <br>
+        <!-- Subir Imagen del PErsonaje -->
+        <div class="row">
+            <div class="input-field col s12">
+                {{form.imagen}}
+            </div>
+            {% for error in form.imagen.errors %}
+                <div class="card-panel red lighten-2">
+                    <span class="white-text text-darken-2">{{error}}</span></div>
+            {% endfor %}
+        </div>
+        <!-- Descripción -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">description</i>
+                {{form.descripcion}}
+                <label for="id_description">Escribe una Descripción del Personaje</label>
+            </div>
+            {% for error in form.descripcion.errors %}
+                <div class="card-panel red lighten-2">
+                    <span class="white-text text-darken-2">{{error}}</span></div>
+            {% endfor %}
+        </div>
+        <!--  Guarda el Personaje -->
+        <div class="center">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Guardar
+                <i class="material-icons right">save</i>
+            </button>
+        </div>
+    </form>
+
+    
+</div>
+
+{%endblock%}
