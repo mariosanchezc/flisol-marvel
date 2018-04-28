@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from .forms import PersonajeForm
 from .models import Personaje
 import datetime
+from apps.utils.api_marvel import get_data
 
 
 def prueba1(request):
@@ -15,6 +16,26 @@ def prueba1(request):
     template_name = 'personajes/index.html'
     return render(request, template_name, context={"title": title, 'date': date})
 
+
+def pull_data_marvel(request):
+    """
+    Permite cargar nuevos elementos desde la 
+    API de Marvel
+    """
+    template_name = 'personajes/extraer_data.html'
+    if request.method == 'GET':
+        return render(request, template_name)
+    elif request.method == 'POST':
+        datos = get_data()
+        for data in datos:
+            Personaje.objects.create(
+                nombre=data.nombre,
+                descripcion=data.descripcion,
+                imagen_url=data.imagen_url,
+                url=data.url,
+                tipo_personaje="HEROE",
+            )
+        return HttpResponseRedirect('/list-personajes')
 
 class CreatePersonajeView(View):
     """
@@ -57,7 +78,6 @@ class ListPersonajeView(ListView):
     template_name = 'personajes/list-personaje.html'
     model = Personaje
     paginate_by = 100
-
 
     def get_queryset(self):
         return Personaje.objects.all().order_by('-fecha_creacion')

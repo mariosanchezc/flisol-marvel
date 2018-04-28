@@ -18,7 +18,11 @@
 <!-- FORMULARIO -->
 <div class="row card" >
     <div class="col s5 hoverable" style="margin-top:20px">
-        <img src="{{object.imagen.url}}" alt="" class=" responsive-img"> <!-- notice the "circle" class -->
+        {% if object.imagen %}
+            <img class="responsive-img activator" src="{{object.imagen.url}}">
+        {%else%}
+        <img class="responsive-img activator" src="{{object.imagen_url}}">
+        {% endif %}
     </div>
     <form class="col s7 card-content" method="POST" 
           enctype="multipart/form-data" action="{% url 'personajes:update' object.pk %}">

@@ -19,7 +19,7 @@ class Personaje(models.Model):
     nombre = models.CharField(max_length=200)
     tipo_personaje = models.CharField(max_length=200, choices=TIPOS)
     descripcion = models.TextField()
-    imagen = models.ImageField(upload_to=user_directory_path)
+    imagen = models.ImageField(upload_to=user_directory_path, blank=True, null=True)
     imagen_url = models.URLField(blank=True, null=True)
     url = models.URLField(blank=True, null=True)
     fecha_creacion = models.DateTimeField(auto_now_add=True)

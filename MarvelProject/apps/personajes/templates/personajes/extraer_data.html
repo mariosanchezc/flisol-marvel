@@ -1,0 +1,31 @@
+{% extends 'personajes/index.html'%}
+
+{% block title%} <h5>Obten los Personajes desde la API de Marvel</h5> {% endblock%}
+
+{% block container%}
+    <div>
+        <a class="btn-floating tooltipped" data-position="bottom" data-delay="30" 
+            data-tooltip="Regresar" href="{% url 'personajes:list' %}">
+            <i class="material-icons">arrow_back</i></a>
+    </div>
+    <div class="row">
+        <div class="card">
+            <div class="row">
+                <p class="card-content">
+                        CREATE AWESOME STUFF 
+                        WITH THE WORLD'S 
+                        GREATEST COMIC API
+                        The Marvel Comics API allows developers everywhere to access information about Marvel's vast library of comics—from what's coming up, to 70 years ago. 
+                </p>
+                <form class="col s12" method="POST" action="{% url 'personajes:datos' %}">
+                    {%csrf_token%}
+                    <div class="row center">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Obtenga los datos
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
