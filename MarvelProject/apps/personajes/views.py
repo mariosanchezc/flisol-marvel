@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import View, ListView
+from django.views.generic import View, ListView, DetailView
 from django.http import HttpResponseRedirect
 from .forms import PersonajeForm
 from .models import Personaje
@@ -61,3 +61,14 @@ class ListPersonajeView(ListView):
 
     def get_queryset(self):
         return Personaje.objects.all().order_by('-fecha_creacion')
+
+
+class PersonajeDetail(DetailView):
+    """
+    Detalla Nuestro Personaje
+    """
+    template_name='personajes/detail-personaje.html'
+    model = Personaje
+    paginate_by = 100
+
+    

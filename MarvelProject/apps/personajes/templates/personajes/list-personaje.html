@@ -27,7 +27,7 @@
                     <div class="creado">
                         Creado : {{personaje.fecha_creacion}}
                     </div>
-                    <p><a href="#">Ver Detalle</a></p>
+                    <p><a href="{% url 'personajes:detail' personaje.pk  %}">Ver Detalle</a></p>
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4">{{personaje.nombre}}

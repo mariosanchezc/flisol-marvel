@@ -1,14 +1,15 @@
-## Reto 7.
-SOLUCIÓN RETO 7: Crea una vista basada en Clase que permita listar todos los personajes Creados.
+## Reto 8.
+SOLUCIÓN RETO 8: Crea el Detalle del personaje: Utiliza el Detail View para generar el detalle del personaje.
 
-1. Crea la vista basada en Clase con ListView
-2. Genera el queryset para ordenar del más reciente creado
-3. Desarrolla el list-personaje.html
+1. Crea la vista basada en Clase con DetailView
+2. Crea el templete para el DetailView
+3. Desarrolla el detail-personaje.html
 
-. Referencias:
+4. Referencias:
     - https://docs.djangoproject.com/en/2.0/ref/class-based-views/generic-display/
 
-## Reto 8:
-Crea el Detalle del personaje: Utiliza el Detail View para generar el detalle del personaje.
+## Reto 9:
+Actualiza el Personaje: Actualizar los personajes. utiliza UpdateView
+
 
 
