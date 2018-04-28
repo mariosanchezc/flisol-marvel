@@ -21,4 +21,4 @@ SOLUCIÓN RETO 3: Creación de APPS y Modelos Personaje y Comic:
 
 ## Reto 4:
 Crea tu primera vista: La vista deberá renderizar un Template
-y se deberá usar bootstrap para estilizar su plantilla.
+y se deberá usar materialize para estilizar su plantilla.
